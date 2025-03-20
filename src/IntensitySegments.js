@@ -43,7 +43,7 @@ export class IntensitySegments {
   add(from, to, amount) {
     try {
       validateIntensityParams({ from, to, amount });
-      if (!amount) return;
+      if (amount === this.baseIntensity) return;
       this.points.set(from, (this.points.get(from) || 0) + amount);
       this.points.set(to, (this.points.get(to) || 0) - amount);
     } catch (error) {
